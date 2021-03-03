@@ -69,8 +69,7 @@ public class FixedWidthTextFileReader implements Reader {
 		try {
 			open();
 			readAll(dataSet);
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			logger.severe(e.toString());
 			throw e;
 		} finally {
