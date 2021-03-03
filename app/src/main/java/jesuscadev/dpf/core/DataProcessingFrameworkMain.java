@@ -8,7 +8,8 @@ import java.io.File;
 import static jesuscadev.dpf.Main.logger;
 
 public class DataProcessingFrameworkMain {
-	public DataProcessingFrameworkMain() {}
+	public DataProcessingFrameworkMain() {
+	}
 
 	public void process(String configFile) {
 		logger.info("Process started.");

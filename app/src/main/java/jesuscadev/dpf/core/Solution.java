@@ -20,15 +20,15 @@ import java.util.List;
 import static jesuscadev.dpf.Main.logger;
 
 @XmlSeeAlso({
-	DataBaseReader.class,
-	DelimitedTextFileReader.class,
-	FixedWidthTextFileReader.class,
-	XmlFileReader.class,
-	ConciliateProcessor.class,
-	FilterProcessor.class,
-	SortProcessor.class,
-	DataBasePublisher.class,
-	DelimitedTextFilePublisher.class})
+		DataBaseReader.class,
+		DelimitedTextFileReader.class,
+		FixedWidthTextFileReader.class,
+		XmlFileReader.class,
+		ConciliateProcessor.class,
+		FilterProcessor.class,
+		SortProcessor.class,
+		DataBasePublisher.class,
+		DelimitedTextFilePublisher.class})
 
 @XmlRootElement
 public class Solution {

@@ -29,24 +29,24 @@ public class Main {
 	public static void main(String[] dpfArgs) throws IOException {
 		int numArgs = dpfArgs.length;
 
-        DpfProperties.getProperties();
+		DpfProperties.getProperties();
 		logger.setLevel(Level.ALL);
 		if (numArgs > 0) {
 			logger.info("Processing command line arguments.");
-            int argNum = 0;
-            while (argNum < dpfArgs.length) {
-                String dpfArg = dpfArgs[argNum];
-                switch (dpfArg) {
-                    case "-c":
-                    case "-config": {
-                        if (argNum < dpfArgs.length - 1) {
-                            DpfProperties.setDpfConfigFile(dpfArgs[++argNum]);
-                            logger.config("dpfConfigFile: [" + DpfProperties.getDpfConfigFile() + "]");
-                        }
-                    }
-                    argNum++;
-                }
-            }
+			int argNum = 0;
+			while (argNum < dpfArgs.length) {
+				String dpfArg = dpfArgs[argNum];
+				switch (dpfArg) {
+					case "-c":
+					case "-config": {
+						if (argNum < dpfArgs.length - 1) {
+							DpfProperties.setDpfConfigFile(dpfArgs[++argNum]);
+							logger.config("dpfConfigFile: [" + DpfProperties.getDpfConfigFile() + "]");
+						}
+					}
+					argNum++;
+				}
+			}
 		}
 		logger.info("Started Data Processing Framework process.");
 		try {

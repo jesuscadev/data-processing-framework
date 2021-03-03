@@ -10,14 +10,30 @@ public class Parameter {
 	private String name;
 	private String value;
 
-	public String getType() { return type; }
-	public String getName() { return name; }
-	public String getValue() { return value; }
+	public String getType() {
+		return type;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getValue() {
+		return value;
+	}
 
 	@XmlAttribute
-	public void setType(String type) { this.type = type; }
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	@XmlElement
-	public void setName(String name) { this.name = name; }
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@XmlElement
-	public void setValue(String value) { this.value = value; }
+	public void setValue(String value) {
+		this.value = value;
+	}
 }

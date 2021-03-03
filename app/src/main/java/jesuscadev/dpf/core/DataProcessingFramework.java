@@ -11,10 +11,14 @@ import static jesuscadev.dpf.Main.logger;
 public class DataProcessingFramework {
 	private String name;
 
-	public String getName(){ return name; }
+	public String getName() {
+		return name;
+	}
 
 	@XmlAttribute
-	public void setName(String name) { this.name = name; }
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	@XmlElementWrapper
 	@XmlAnyElement(lax = true)

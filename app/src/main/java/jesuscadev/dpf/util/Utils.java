@@ -8,20 +8,20 @@ import java.util.Date;
 public class Utils {
 	public enum tiposLog {logError, logAdvertencia, logInformativo}
 
-	public static void message(String class, String message, String textLogType) {
-		System.out.println(textLogType + " | " + class + " : [" + message + "]");
+	public static void message(String className, String message, String textLogType) {
+		System.out.println(textLogType + " | " + className + " : [" + message + "]");
 	}
 
-	public static void messageAdv(String class, String message) {
-		message(class, message, "ADV");
+	public static void messageAdv(String className, String message) {
+		message(className, message, "ADV");
 	}
 
-	public static void messageErr(String class, String message) {
-		message(class, message, "ERR");
+	public static void messageErr(String className, String message) {
+		message(className, message, "ERR");
 	}
 
-	public static void messageInf(String class, String message) {
-		message(class, message, "INF");
+	public static void messageInf(String className, String message) {
+		message(className, message, "INF");
 	}
 
 	public static Date convertStringToDate(String dateValue, String dateFormat) {
