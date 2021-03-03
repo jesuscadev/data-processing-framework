@@ -28,7 +28,7 @@ public class Main {
 		logger = Logger.getLogger(Main.class.getName());
 
 		System.setProperty("java.util.logging.config.file", "src/main/resources/logging.properties");
-		logger = Logger.getLogger("jkdev.dpf");
+		logger = Logger.getLogger("jesuscadev.dpf");
 	}
 
 	public static void main(String[] dpfArgs) {
