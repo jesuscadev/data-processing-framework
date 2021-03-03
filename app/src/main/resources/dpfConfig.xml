@@ -1,0 +1,87 @@
+<dataProcessingFramework name="Tests">
+	<parameters>
+		<parameter name="dateToday" type="Date"></parameter>
+		<parameter name="dateYesterday" type="Date">
+			<value>{#dateToday# - 1, yyyyMMdd}</value>
+		</parameter>
+		<parameter name="dateYesterdayBusinessDay" type="Date">
+			<value>{#dateToday# - 1, yyyyMMdd}</value>
+			<holidayCalendar>MEX,USA</holidayCalendar>
+		</parameter>
+		<parameter name="pathCsvFile" type="String">
+			<value>
+				\\server\bank$\{#dateYesterdayBusinessDay#, yyyy-MM-dd}\transactions.csv
+			</value>
+		</parameter>
+		<parameter name="databaseConnection" type="String">
+			<value>
+				Server=BANK_SERVER;
+				Database=BANK_DATABASE;
+				Uid=usr001;
+				Pwd=pwd123;
+			</value>
+		</parameter>
+		<parameter name="databaseQuery" type="String">
+			<value>
+				SELECT ID, TransactionDate, Concept, Amount
+				FROM BankTransactions
+				WHERE TransactionDate &gt;= '{#dateYesterdayBusinessDay#, dd-MM-yyyy}';
+			</value>
+		</parameter>
+	</parameters>
+	<solutions>
+		<solution name="Data Migration">
+			<readers>
+				<fixedWidthTextFileReader name="transactions_txt">
+					<filePath>test/input/transactions.txt</filePath>
+					<headerLines>3</headerLines>
+					<dataColumns>
+						<dataColumn>
+							<name>ID</name>
+							<position>0</position>
+							<length>8</length>
+							<dataType>String</dataType>
+						</dataColumn>
+						<dataColumn>
+							<name>TransactionDate</name>
+							<position>8</position>
+							<length>10</length>
+							<dataType>Date</dataType>
+							<format>MM/dd/yyyy</format>
+						</dataColumn>
+						<dataColumn>
+							<name>Concept</name>
+							<position>18</position>
+							<length>27</length>
+							<dataType>String</dataType>
+						</dataColumn>
+						<dataColumn>
+							<name>Amount</name>
+							<position>45</position>
+							<length>10</length>
+							<dataType>double</dataType>
+							<decimals>2</decimals>
+						</dataColumn>
+					</dataColumns>
+				</fixedWidthTextFileReader>
+			</readers>
+			<processors>
+				<sortProcessor name="Sort by Amount and Transaction Date">
+					<inputTable>transactions_txt</inputTable>
+					<sortColumns>
+						<sortColumn>Amount</sortColumn>
+						<sortColumn>TransactionDate</sortColumn>
+					</sortColumns>
+				</sortProcessor>
+			</processors>
+			<publishers>
+				<delimitedTextFilePublisher name="Publish file migration.csv">
+					<tableName>transactions_txt</tableName>
+					<filePath>test/output/migration.csv</filePath>
+					<includeHeader>true</includeHeader>
+					<includeQuotes>true</includeQuotes>
+				</delimitedTextFilePublisher>
+			</publishers>
+		</solution>
+	</solutions>
+</dataProcessingFramework>
