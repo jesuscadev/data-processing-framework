@@ -8,40 +8,40 @@ import java.util.Date;
 public class Utils {
 	public enum tiposLog {logError, logAdvertencia, logInformativo}
 
-	public static void mensaje(String clase, String mensaje, String tipoLogTexto) {
-		System.out.println(tipoLogTexto + " | " + clase + " : [" + mensaje + "]");
+	public static void message(String class, String message, String textLogType) {
+		System.out.println(textLogType + " | " + class + " : [" + message + "]");
 	}
 
-	public static void mensajeAdv(String clase, String mensaje) {
-		mensaje(clase, mensaje, "ADV");
+	public static void messageAdv(String class, String message) {
+		message(class, message, "ADV");
 	}
 
-	public static void mensajeErr(String clase, String mensaje) {
-		mensaje(clase, mensaje, "ERR");
+	public static void messageErr(String class, String message) {
+		message(class, message, "ERR");
 	}
 
-	public static void mensajeInf(String clase, String mensaje) {
-		mensaje(clase, mensaje, "INF");
+	public static void messageInf(String class, String message) {
+		message(class, message, "INF");
 	}
 
-	public static Date convertirCadenaEnFecha(String valorFecha, String formatoFecha) {
-		DateFormat formateadorFecha = new SimpleDateFormat(formatoFecha);
-		Date fecha = null;
-		formateadorFecha.setLenient(false);
+	public static Date convertStringToDate(String dateValue, String dateFormat) {
+		DateFormat dateFormatter = new SimpleDateFormat(dateFormat);
+		Date date = null;
+		dateFormatter.setLenient(false);
 		try {
-			fecha = formateadorFecha.parse(valorFecha);
+			date = dateFormatter.parse(dateValue);
 		} catch (ParseException e) {
 			e.printStackTrace();
-			return fecha;
+			return date;
 		}
-		return fecha;
+		return date;
 	}
 
-	public static String convertirFechaEnCadena(Date valorFecha, String formatoFecha) {
-		DateFormat formateadorFecha = new SimpleDateFormat(formatoFecha);
-		String fecha = "";
-		fecha = formateadorFecha.format(valorFecha);
-		return fecha;
+	public static String convertDateToString(Date dateValue, String dateFormat) {
+		DateFormat dateFormatter = new SimpleDateFormat(dateFormat);
+		String date = "";
+		date = dateFormatter.format(dateValue);
+		return date;
 	}
 
 	/*
