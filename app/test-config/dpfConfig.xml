@@ -33,7 +33,7 @@
 		<solution name="Data Migration">
 			<readers>
 				<fixedWidthTextFileReader name="transactions_txt">
-					<filePath>test/input/transactions.txt</filePath>
+					<filePath>test-input/transactions.txt</filePath>
 					<headerLines>3</headerLines>
 					<dataColumns>
 						<dataColumn>
@@ -52,12 +52,12 @@
 						<dataColumn>
 							<name>Concept</name>
 							<position>18</position>
-							<length>27</length>
+							<length>32</length>
 							<dataType>String</dataType>
 						</dataColumn>
 						<dataColumn>
 							<name>Amount</name>
-							<position>45</position>
+							<position>50</position>
 							<length>10</length>
 							<dataType>double</dataType>
 							<decimals>2</decimals>
@@ -77,7 +77,7 @@
 			<publishers>
 				<delimitedTextFilePublisher name="Publish file migration.csv">
 					<tableName>transactions_txt</tableName>
-					<filePath>test/output/migration.csv</filePath>
+					<filePath>test-output/migration.csv</filePath>
 					<includeHeader>true</includeHeader>
 					<includeQuotes>true</includeQuotes>
 				</delimitedTextFilePublisher>

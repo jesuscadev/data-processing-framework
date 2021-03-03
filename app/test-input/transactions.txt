@@ -1,0 +1,13 @@
+0         1         2         3         4         5    
+012345678901234567890123456789012345678901234567890123456789
+ID      Date      Concept                         Amount
+A120030204/22/2016Over the Counter Cash Withdrawal-000052050
+A120030704/24/2016Funds Transfer                  -000050000
+A120030504/23/2016ATM Cash Withdrawal             -000030000
+A120030904/25/2016ATM Cash Withdrawal             -000030000
+A120030804/24/2016PayPal                          -000024730
+A120030404/23/2016Amazon                          -000012720
+A120030304/23/2016Cash deposit                     000028000
+A120030604/24/2016Cash deposit                     000069500
+A120031004/25/2016Interbank Transfer               000168000
+A120030104/21/2016Interbank Transfer               000175000

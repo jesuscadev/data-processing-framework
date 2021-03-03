@@ -2,7 +2,6 @@ package jesuscadev.dpf;
 
 import jesuscadev.dpf.core.DataProcessingFrameworkMain;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -11,22 +10,19 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 public class Main {
-//	public static Logger logger = LogManager.getLogManager().getLogger(Logger.GLOBAL_LOGGER_NAME);
 	public static Logger logger;
 
 	private static String dpfConfigFile = "";
 	private static DataProcessingFrameworkMain dpfMain;
 
 	static {
-		InputStream stream = Main.class.getClassLoader().
-			getResourceAsStream("logging.properties");
-		try {
-			LogManager.getLogManager().readConfiguration(stream);
+		String loginPropertiesFile = "config/logging.properties";
+		ClassLoader classLoader = Main.class.getClassLoader();
+		try (InputStream inputStream = classLoader.getResourceAsStream(loginPropertiesFile)) {
+			LogManager.getLogManager().readConfiguration(inputStream);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		logger = Logger.getLogger(Main.class.getName());
-
 		System.setProperty("java.util.logging.config.file", "src/main/resources/logging.properties");
 		logger = Logger.getLogger("jesuscadev.dpf");
 	}
@@ -53,18 +49,18 @@ public class Main {
 		logger.info("Finished Data Processing Framework process.");
 	}
 
-	private static void getProperties() {
+	private static void getProperties() throws IOException {
 		logger.info("Started reading Properties.");
-		try {
-			String dpfRootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-			String dpfPropertiesPath = dpfRootPath + "dpfProperties.xml";
-			logger.config("dpfPropertiesPath: [" + dpfPropertiesPath + "]");
+		String dpfPropertiesFile = "config/dpfProperties.xml";
+		ClassLoader classLoader = Main.class.getClassLoader();
+		try (InputStream inputStream = classLoader.getResourceAsStream(dpfPropertiesFile)) {
+			logger.config("dpfPropertiesFile: [" + dpfPropertiesFile + "]");
 			Properties dpfProps = new Properties();
-			dpfProps.loadFromXML(new FileInputStream(dpfPropertiesPath));
+			dpfProps.loadFromXML(inputStream);
 			dpfConfigFile = dpfProps.getProperty("dpfConfigFile");
 			logger.config("dpfConfigFile: [" + dpfConfigFile + "]");
-		} catch (Exception e) {
-			logger.severe(e.getMessage());
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		logger.info("Finished reading Properties.");
 		return;
