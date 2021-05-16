@@ -29,7 +29,8 @@ public class DpfInitialization {
 		} catch (IOException e) {
 			logger.severe(e.getMessage());
 		}
-		System.setProperty("java.util.logging.config.file", "src/main/resources/logging.properties");
+//		System.setProperty("java.util.logging.config.file", "src/main/resources/config/logging.properties");
+		System.setProperty("java.util.logging.config.file", "config/logging.properties");
 		logger = Logger.getLogger("jesuscadev.dpf");
 	}
 

@@ -2,5 +2,5 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 	<comment>Data Processing Framework Properties</comment>
-	<entry key="dpfConfigFile">src/main/resources/dpfConfig.xml</entry>
+	<entry key="dpfConfigFile">config/dpfConfig.xml</entry>
 </properties>
