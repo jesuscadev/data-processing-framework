@@ -19,7 +19,7 @@ public class FixedWidthTextFileReaderTest {
 		fixedWidthTextFileReader.setFilePath("test-input/transactions.txt");
 		fixedWidthTextFileReader.setHeaderLines(3);
 
-		DataColumn dataColumns[] = new DataColumn[4];
+		DataColumn[] dataColumns = new DataColumn[4];
 
 		dataColumns[0] = new DataColumn();
 		dataColumns[0].setName("ID");

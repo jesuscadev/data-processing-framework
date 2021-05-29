@@ -20,7 +20,7 @@ public class DelimitedTextFileReaderTest {
 		delimitedTextFileReader.setDelimiter(",");
 		delimitedTextFileReader.setHeaderLines(1);
 
-		DataColumn dataColumns[] = new DataColumn[4];
+		DataColumn[] dataColumns = new DataColumn[4];
 
 		dataColumns[0] = new DataColumn();
 		dataColumns[0].setName("ID");
