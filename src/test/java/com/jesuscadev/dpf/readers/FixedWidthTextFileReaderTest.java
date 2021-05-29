@@ -51,7 +51,7 @@ public class FixedWidthTextFileReaderTest {
 			fixedWidthTextFileReader.dataColumns.add(dataColumn);
 		}
 		fixedWidthTextFileReader.readData(dataSet);
-		int readRows = dataSet.getTable(fixedWidthTextFileReader.getName()).dataRows.size();
+		int readRows = dataSet.getTable("transactions_txt").dataRows.size();
 		assertEquals(readRows, 10);
 	}
 }
