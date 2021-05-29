@@ -7,7 +7,6 @@ import com.jesuscadev.dpf.Main;
 import java.io.InputStream;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
