@@ -1,0 +1,12 @@
+package com.jesuscadev.dpf.core;
+
+import com.jesuscadev.dpf.data.DataSet;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+public interface Reader {
+	void readData(DataSet dataSet) throws IOException, SQLException, ClassNotFoundException;
+}
+
+
